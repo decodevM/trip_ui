@@ -14,10 +14,10 @@ class TripPage extends StatefulWidget {
 }
 
 class _TripPageState extends State<TripPage> {
-  bool isReadMore = false;
-  void readMore() {
+  bool isShowMore = false;
+  void showMore() {
     setState(() {
-      isReadMore = !isReadMore;
+      isShowMore = !isShowMore;
     });
   }
 
@@ -34,8 +34,8 @@ class _TripPageState extends State<TripPage> {
       ),
       child: Container(
         padding: EdgeInsets.only(
-            top: MediaQuery.of(context).padding.top,
-            bottom: MediaQuery.of(context).padding.bottom,
+            top: MediaQuery.of(context).padding.top+20,
+            bottom: MediaQuery.of(context).padding.bottom+20,
             left: 20,
             right: 20),
         decoration: BoxDecoration(
@@ -81,12 +81,12 @@ class _TripPageState extends State<TripPage> {
                   color: Colors.white.withOpacity(.8),
                   fontSize: 16,
                   height: 1.5,
-                  overflow: isReadMore ? null : TextOverflow.ellipsis),
-              maxLines: isReadMore ? null : 1,
+                  overflow: isShowMore ? null : TextOverflow.ellipsis),
+              maxLines: isShowMore ? null : 1,
             ),
             TextButton(
-              onPressed: readMore,
-              child: const Text('Read more'),
+              onPressed: showMore,
+              child: Text(isShowMore ? 'Show less' :'Show more'),
             ),
           ],
         ),
